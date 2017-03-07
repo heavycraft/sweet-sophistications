@@ -7,3 +7,4 @@ typings
 custom_typings
 src/ENV_VARS.ts
 scripts
+src/environment.ts

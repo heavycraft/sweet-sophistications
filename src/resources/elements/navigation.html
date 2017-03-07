@@ -1,0 +1,36 @@
+<template>
+  <require from="./navigation.css"></require>
+    <nav class="navbar navbar-inverse fixed-top transition-all text-white navbar-toggleable-md au-animate ${scrollBreak || (route !== 'home') ? 'bg-inverse' : 'bg-inverse-transparent mt-0 mt-md-5'} ">
+      <button class="navbar-toggler navbar-toggler-right" type="button" click.trigger="toggleCollapse()">
+        <svg id="burger" viewBox="0 0 100 100" class="${collapsed ? '': 'open'}">
+          <rect class="burger-ingredient" id="burger-top" y="0" width="100%" height="20%"  />
+          <rect class="burger-ingredient" id="burger-patty" y="40" width="100%" height="20%"  />
+          <rect class="burger-ingredient" id="burger-bottom" y="80" width="100%" height="20%"  />
+        </svg>
+      </button>
+      <a class="navbar-brand d-block" route-href="route: home">
+        <img src.bind="emblem" height="48px" class="hidden-xs-down">
+        <img src.bind="logo" height="48px" class="hidden-sm-up">
+        <span class="hidden-xs-down px-3">${header}</span>
+      </a>
+      <div class="navbar-brand-rect-container hidden-md-down bg-primary text-inverse text-center transition-transform ${scrollBreak|| (route !== 'home') ? 'slide-up' : ''}">
+        <div class="navbar-brand-rect" data-tagline="wedding cakes &bullet; artisan pastries">
+          <img class="mt-5" src="assets/image/logo.svg" width="80%">
+        </div>
+      </div>
+      
+      <div class="collapse navbar-collapse ${collapsed ? '': 'show'}">
+        <ul class="nav navbar-nav justify-content-center justify-content-md-center">
+          <li class="nav-item" repeat.for="link of router.navigation" >
+            <a class="nav-link text-uppercase ${link.isActive ? 'active' : ''}" route-href="route.bind: link.config.name" click.delegate="collapse()">${link.title}</a>
+          </li>
+          
+        </ul>
+      </div>
+      <div if.bind="social">
+        <ul class="nav navbar-nav justify-content-end justify-content-xs-center">
+          <li class="nav-item px-0 hidden-lg-down" repeat.for="platform of social" ><a href.bind="platform.link" class="nav-link"><i class="fa ${platform.icon} fa-1x"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+</template>

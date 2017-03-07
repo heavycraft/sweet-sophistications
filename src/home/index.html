@@ -1,0 +1,28 @@
+<template>
+    <require from="../resources/elements/carousel"></require>
+    <require from="../resources/elements/testimonials"></require>
+    <require from="../resources/elements/media"></require>
+    <div class="router-page au-animate p-0">
+        <div class="py-4 hidden-md-up" ></div>
+        <section class="py-0" if.bind="cakeStyles">
+            <carousel items.bind="cakeStyles" interval="7"></carousel>
+        </section>
+
+        <section if.bind="$parent.business">
+            <div class="container">
+                <h1 class="text-uppercase underline-filagree text-serif text-center">About us</h1>
+                <div class="lead" innerhtml.bind="$parent.business.description"></div>
+                <div innerhtml.bind="$parent.business.description_continued"></div>
+                <div class="text-center mt-4"><button class="btn btn-outline-primary btn-lg" role="button" click.delegate="router.navigateToRoute('about')">Learn More</button></div>
+            </div>
+        </section>
+
+        <section class="bg-faded" if.bind="testimonials">
+            <testimonials items.bind="testimonials" interval="10"></testimonials>
+        </section>
+
+        <section if.bind="media">
+            <media media.bind="media"></media>
+        </section>
+    </div>
+</template>

@@ -1,0 +1,122 @@
+@import '../../style/variables';
+@import '../../../node_modules/bootstrap/scss/mixins/breakpoints';
+
+.nav { width: 100%; }
+
+.navbar {
+  padding-left:$spacer*3;
+  padding-right:$spacer;
+
+  @include media-breakpoint-down(sm) {
+    padding-left:$spacer;
+  }
+
+  height: $navbar-height;
+  @include media-breakpoint-down(md) {
+    height: auto;
+    min-height: $navbar-height;
+  }
+
+  .collapse.show {
+
+    width: 100%;
+    clear: both;
+    text-align: center;
+
+  }
+  
+}
+.navbar-brand-rect-container {
+
+  -webkit-align-self: flex-start;
+  align-self:flex-start;
+  margin-top:-4rem;
+  z-index:9999;
+
+  .navbar-brand-rect {
+    $rect-width: 400px;
+    $rect-height: 15rem;
+    
+    width: $rect-width;
+    height: $rect-height;
+
+    &:after {
+      display: block;
+      position:static;
+      margin-top: 3rem;
+      line-height: $rect-height / 6;
+      content:attr(data-tagline);
+      background-color: transparentize($white, 0.33);
+      color: $brand-primary;
+      text-transform: uppercase;
+      font-size: $rect-height / 15;
+      
+    }
+  }
+}
+
+
+.navbar-brand {
+  font-family: $font-family-serif;
+  text-transform: uppercase;
+  color: rgba($gray-lightest, 0.85) !important;
+  font-size: 1.5rem;
+  padding-top: 0.5rem;
+  margin-right: 0.5rem;
+
+  img { padding-bottom: 0.25rem; }
+  
+  @include media-breakpoint-down(xs) {
+    text-align:center;
+  }
+
+  @include media-breakpoint-up(md) {
+    width:0;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left:0;
+    margin-right:0;
+  }
+
+}
+
+.nav-item {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  letter-spacing: 0.2rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  @include media-breakpoint-down(lg) {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+}
+
+.navbar-toggler {
+  border: none;
+  padding-top: 1rem;
+  &:focus { outline: none; }
+}
+
+
+
+#burger {
+  overflow:visible;
+  height: 1.66rem;
+  
+  .burger-ingredient {
+    fill: $gray-lightest;
+    transition: transform 500ms, opacity 250ms;
+  }
+  
+  #burger-patty { transform-origin: center center;}
+  #burger-top { transform-origin: 10px 10px;}
+  #burger-bottom { transform-origin: 10px 90px;}
+  
+  &.open{
+    #burger-patty { opacity: 0; transform: scale(0); }
+    #burger-top { transform: rotate(45deg) translate(16.5%, 0px);}
+    #burger-bottom { transform: rotate(-45deg) translate(16.5%, 0px);}
+  }
+  
+}

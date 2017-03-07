@@ -1,0 +1,60 @@
+@import '../../style/variables';
+@import '../../style/animations';
+@import '../../../node_modules/bootstrap/scss/mixins/breakpoints';
+
+.testimonial {
+    .row {
+
+        .blockquote {
+            height: 18rem;
+            border-left-width: 0.4rem;
+
+            footer { margin-top: $spacer; }
+
+            @include media-breakpoint-down(sm){ 
+                font-size:1.25rem;
+                line-height: 1.2;
+                footer {
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        &.au-enter {
+            opacity: 0!important;
+        }
+
+        &.au-enter-active {
+            -webkit-animation: fadeIn 2s;
+            animation: fadeIn 2s;
+
+            &.first{
+                position:absolute;
+                width: 100%;
+                margin-left:0px;
+            transform: translateX(-50%);
+            left: 50%;
+            }
+        }
+
+        &.au-leave-active {
+
+            &:not(.last){
+                position:absolute;
+                width: 100%;
+                margin-left:0px;
+                transform: translateX(-50%);
+                left: 50%;
+            }
+            
+            @include media-breakpoint-up(sm){ width: 540px; }
+            @include media-breakpoint-up(md){ width: 720px; }
+            @include media-breakpoint-up(lg){ width: 960px; }
+            @include media-breakpoint-up(xl){ width: 1140px; }
+            
+            -webkit-animation: fadeOut 2s;
+            animation: fadeOut 2s;
+        }
+    }
+}
+

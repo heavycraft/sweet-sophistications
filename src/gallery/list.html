@@ -1,0 +1,47 @@
+<template>
+    <require from="./list.css"></require>
+    <require from="../resources/elements/pageheader"></require>
+    <require from="../resources/value-converters/timeformat"></require>
+    <require from="../resources/value-converters/filter"></require>
+    <page-header title.bind="routeTitle" body="Browse our decadent creations."></page-header>
+    <div class="child-route au-animate">
+        <section class="bg-faded">
+            <div class="container text-center">
+                <h4>Available Styles:</h4>
+                <div class="row justify-content-between px-3">
+                    <label class="custom-control custom-checkbox" repeat.for="style of styles">
+                        <input type="checkbox" name="style" class="custom-control-input" value.bind="style" checked.bind="selectedStyles" change.delegate="updateGallery()">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description text-capitalize">${style}</span>
+                    </label>
+                </div>
+                <button class="btn btn-primary btn-sm" click.delegate="selectAllStyles()" disabled.bind="selectedStyles.length === styles.length">SELECT ALL</button>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="card-columns gallery-images au-stagger">
+                    <div class="card au-animate text-center" repeat.for="image of gallery | filter: 'style': selectedStyles" >
+                        
+                        <img role="button" class="card-img-top w-100" src.bind="image.image.url" alt="Card image cap" click.delegate="openImage(image.id)">
+                        <div class="card-block" if.bind="image.description || image.title">
+                            <h4 class="card-title" if.bind="image.title">${image.title}</h4>
+                            <p class="card-text" if.bind="image.description">${image.description}</p>
+                            <ul class="list-inline tags">
+                                <li class="list-inline-item badge badge-default badge-pill" repeat.for="tag of image.tags">${tag}</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card-footer bg-faded">
+                            <small>${image.style}</small><br>
+                            <small class="text-muted" if.bind="image.image.date_uploaded">Added ${image.image.date_uploaded | timeFormat}</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center" if.bind="!selectedStyles.length" >
+                    <h3>Choose style(s) from above to get started.</h3>
+                </div>
+            </div>
+        </section>
+    </div>
+</template>

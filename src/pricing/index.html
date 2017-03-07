@@ -1,0 +1,47 @@
+<template>
+    <require from="./style.css"></require>
+    <require from="../resources/elements/pageheader"></require>
+    <require from="../resources/value-converters/moneyformat"></require>
+    <div class="router-page au-animate pricing">
+        <page-header title.bind="routeTitle" body.bind="menu.description"></page-header>
+
+        <section>
+            <div class="container">
+                <h2 class="text-center pb-4 underline-filagree">Cake Styles</h2>
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-xl-3" repeat.for="style of menu.styles">
+                        <div class="card">
+                            <div class="card-img-top w-100">
+                                <img class="img-fluid w-100" if.bind="style.photo.thumbnail_url" src.bind="style.photo.thumbnail_url"
+                                    alt="Card image cap"></div>
+                            <div class="card-block d-flex align-items-center justify-content-center">
+                                <div>
+                                    <h4 class="card-title text-serif">${style.name}</h4>
+                                    <p class="card-text" innerhtml.bind="style.description"></p>
+                                    
+                                </div>
+                                
+                            </div>
+                            <div class="btn btn-primary btn-block" role="button" click.delegate="router.navigateToRoute('contact')">
+                                <small ref="hasBasePrice" if.bind="style.base_price > 0">Starting at ${ style.base_price | moneyFormat} / Person</small>
+                                <small if.bind="!hasBasePrice">Contact us for price estimate.</small>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-link" role="button" click.delegate="galleryShow(style.name)">View More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-faded">
+            <div class="container">
+                <h3 class="text-center pb-4">Popular Flavors</h3>
+                <ul class="list-inline flavors text-center">
+                    <li class="list-inline-item badge badge-default badge-pill ${flavor.description ? 'has-tooltip' : ''}" repeat.for="flavor of menu.flavors" data-tooltip.bind="flavor.description">${flavor.name}</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</template>

@@ -1,0 +1,21 @@
+<template>
+    <require from="../resources/elements/pageheader"></require>
+    <require from="../resources/elements/media"></require>
+    <div class="router-page au-animate" >
+        <page-header title.bind="routeTitle" body.bind="$parent.business.description"></page-header>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <p innerhtml.bind="$parent.business.description_continued" class="underline-filagree mb-5"></p>
+                        <media media.bind="media"></media>
+                    </div>
+                    <div class="col-12 col-md-4 text-center">
+                        <img class="img-fluid" src.bind="$parent.business.owner.photo.url">
+                        <p><small>${$parent.business.owner.name} 	&#8213; ${$parent.business.owner.title}</small></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</template>

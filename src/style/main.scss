@@ -1,0 +1,178 @@
+@import 'variables';
+@import 'animations';
+@import '../../node_modules/bootstrap/scss/bootstrap';
+@import '../../node_modules/bootstrap/scss/mixins/breakpoints';
+
+.bg-black { background-color: rgba(black,0.98); }
+.bg-purple { background-color: $purple; }
+.bg-pink { background-color: $pink; }
+.bg-red { background-color: $red; }
+.bg-orange { background-color: $orange; }
+.bg-yellow { background-color: $yellow; }
+.bg-green { background-color: $green; }
+.bg-blue { background-color: $blue; }
+.bg-teal { background-color: $teal; }
+.bg-inverse-transparent {
+    @extend .bg-inverse;
+    @include media-breakpoint-up(md) {
+        background-color: transparentize($inverse-bg, 0.33) !important;
+    }
+}
+.bg-faded {
+  background-color: darken($body-bg, 4%);
+}
+
+.text-serif {
+    font-family: $font-family-serif;
+}
+
+.underline-filagree {
+    margin-bottom: $spacer;
+    &:after {
+        display: block;
+        content:'';
+        margin: 0 auto;
+        width:$spacer*6;
+        height: $spacer;
+        margin-top: $spacer;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 164.70704 18.242919"> <path fill="#{rgba($brand-inverse, 0.5)}" d="m 22.34765,0.00679817 c -3.60584,-0.0784 -7.22827,0.52195 -10.61133,1.77344003 -4.51074,1.66865 -8.58758,4.49344 -11.73632,8.1289 7.1126,-4.12836 15.9282,-5.21135 23.82812,-2.92578 7.10329,2.0551 13.23401,6.6094498 20.19531,9.1035198 5.95894,2.13495 12.47308,2.70017 18.71094,1.625 5.19205,-0.89491 10.17389,-2.9383 14.52734,-5.9043 3.00971,1.56666 6.02059,3.13837 9.20508,4.2793 5.95894,2.13495 12.47308,2.70016 18.71095,1.625 5.19205,-0.89491 10.17388,-2.9383 14.52734,-5.9043 3.00971,1.56666 6.02058,3.13837 9.20508,4.2793 5.95894,2.13495 12.47308,2.70016 18.71094,1.625 6.23787,-1.07516 12.18556,-3.78825 17.08593,-7.7949198 -6.91197,3.4450898 -15.03913,4.3885798 -22.55664,2.6191398 -5.47501,-1.28869 -10.5184,-3.9290998 -15.55078,-6.4414098 -5.03237,-2.5123 -10.21257,-4.94971 -15.77539,-5.78125003 -4.75664,-0.71103 -9.69044,-0.20185 -14.20118,1.46680003 -3.49583,1.2932 -6.72583,3.28565 -9.4707,5.80664 -1.00046,-0.49593 -1.99981,-0.99482 -2.9961,-1.49219 -5.03237,-2.5123 -10.21257,-4.94971 -15.77539,-5.78125003 -4.75664,-0.71103 -9.69044,-0.20185 -14.20117,1.46680003 -3.49583,1.2932 -6.72583,3.28565 -9.4707,5.80664 -1.00045,-0.49593 -1.99981,-0.99482 -2.9961,-1.49219 -5.03238,-2.5123 -10.21061,-4.94971 -15.77343,-5.78125003 -1.18916,-0.17776 -2.38985,-0.28052 -3.5918,-0.30664 z M 57.13476,5.8153882 c 3.08188,-0.0731 6.17425,0.31088 9.13672,1.16797 3.55025,1.02715 6.85675,2.67834 10.14648,4.3847698 -6.09417,2.21806 -12.83836,2.65459 -19.15429,1.16797 -3.94752,-0.92916 -7.66763,-2.5678098 -11.32422,-4.3476598 3.54125,-1.47361 7.35876,-2.28202 11.19531,-2.37305 z m 42.44336,0 c 3.08189,-0.0731 6.1723,0.31088 9.13477,1.16797 3.55025,1.02715 6.85871,2.67834 10.14844,4.3847698 -6.09437,2.2183 -12.8381,2.65465 -19.15431,1.16797 -3.94778,-0.92922 -7.66737,-2.5696198 -11.32421,-4.3496098 3.54084,-1.47322 7.35929,-2.28009 11.19531,-2.3711 z" /></svg>');
+        background-repeat: no-repeat;
+    }
+}
+
+a { transition: color 250ms ease; }
+
+.btn {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.8rem;
+    font-family: $font-family-sans-serif;
+    &.btn-lg {
+        font-size: 1rem;
+        padding-left: $btn-padding-x + $spacer;
+        padding-right: $btn-padding-x + $spacer;
+        padding-top: $btn-padding-y + $spacer/3;
+        padding-bottom: $btn-padding-y + $spacer/3;
+    }
+}
+
+.router-page {
+
+    min-height: 90vh;
+
+    header {
+        padding-top: $navbar-height + $spacer*4;
+        padding-bottom: $spacer*3;
+
+        h1 {
+            //@extend .underline-filagree;
+            @extend .text-center;
+            @extend .text-uppercase;
+            @extend .text-serif;
+            //margin-bottom: $spacer*2;
+        }
+    }
+
+    section {
+        padding-top: $spacer*3;
+        padding-bottom: $spacer*3;
+    }
+    
+    
+}
+
+
+.router-page, .child-route {
+    &.au-enter {
+        opacity: 0;
+    }
+
+    &.au-enter-active {
+        -webkit-animation: fadeIn 600ms forwards;
+        animation: fadeIn 600ms forwards;
+    }
+
+}
+
+.has-tooltip {
+    //display: inline;
+    position: relative;
+    &:hover:before{
+        border: solid;
+        border-color: rgba($brand-primary,.9) transparent;
+        border-width: $spacer/2 $spacer/2 0 $spacer/2;
+        bottom: $font-size-base * $line-height-base + $spacer /2;
+        content: "";
+        left: 50%;
+        transform: translate(-$spacer,0);
+        position: absolute;
+        z-index: 99;
+    }
+    &:hover:after{
+        background: #333;
+        background: rgba($brand-primary,.9);
+        border-radius: $border-radius;
+        bottom: $font-size-base * $line-height-base + $spacer;
+        color: #fff;
+        content: attr(data-tooltip);
+        left: 50%;
+        padding: $spacer 15px;
+        position: absolute;
+        z-index: 98;
+        //width: 220px;
+        transform: translate(-50%,0);
+    }
+}
+
+.loading .loading-container {
+
+    position: fixed;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    //z-index:999666;
+    background-color: rgba($gray-dark, 0.5);  
+    .loader {
+        border: 20px solid $gray;
+        border-top: 20px solid $brand-primary;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        animation: spin 1s linear infinite;
+    }
+}
+
+.list-inline{
+    .list-inline-item:after {
+        content: attr(data-tooltip);
+    }
+    .list-inline-item:last-child:after {
+        content: ''
+    }
+}
+
+.card-columns {
+    -webkit-column-gap: $card-columns-gap;
+        -moz-column-gap: $card-columns-gap;
+        column-gap: $card-columns-gap;
+    @include media-breakpoint-up(sm) {
+        -webkit-column-count: $card-columns-count - 1;
+        -moz-column-count: $card-columns-count - 1;
+        column-count: $card-columns-count - 1;
+    }
+
+    @include media-breakpoint-up(md) {
+        -webkit-column-count: $card-columns-count;
+        -moz-column-count: $card-columns-count;
+        column-count: $card-columns-count;
+    }
+
+    @include media-breakpoint-up(lg) {
+        -webkit-column-count: $card-columns-count + 1;
+        -moz-column-count: $card-columns-count + 1;
+        column-count: $card-columns-count + 1;
+    }
+}

@@ -1,0 +1,8 @@
+node_modules
+.idea
+.DS_STORE
+src/env.variables.ts
+.vscode
+typings
+custom_typings
+src/ENV_VARS.ts

@@ -1,0 +1,33 @@
+@import '../style/variables';
+
+.pricing {
+    .card {
+        text-align: center;
+        margin-bottom: $spacer*2;
+
+        .card-block {
+            height: 12rem;
+            overflow: auto;
+            
+
+            .card-title { 
+                font-size: 1.25rem;
+            }
+
+            .card-text {
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    .flavors {
+        .badge {
+            font-size: 1rem;
+            text-transform: capitalize;
+            padding: $spacer /2;
+            padding-left: $spacer;
+            padding-right: $spacer;
+            margin-bottom: $spacer;
+        }
+    }
+}

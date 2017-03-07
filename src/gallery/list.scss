@@ -1,0 +1,47 @@
+@import '../style/animations';
+@import '../style/variables';
+@import '../../node_modules/bootstrap/scss/mixins/breakpoints';
+
+.gallery-images {
+    &.au-stagger {
+        -webkit-animation-delay:50ms;
+        animation-delay:50ms;
+    }
+
+    .card {
+        margin-bottom: $spacer;
+    }
+
+    &>.card.au-enter {
+        opacity: 0;
+    }
+
+    &>.card.au-enter-active {
+        -webkit-animation: fadeIn 350ms;
+        animation: fadeIn 350ms;
+    }
+
+/*    &>.card.au-leave-active {
+        -webkit-animation: fadeOut 350ms;
+        animation: fadeOut 350ms;
+    }*/
+}
+
+.tags {
+    margin-bottom: 0;
+    .badge {
+        font-size: 0.75rem;
+        text-transform: capitalize;
+        padding: $spacer / 2;
+        padding-left: $spacer;
+        padding-right: $spacer;
+        margin-bottom: $spacer /2;
+    }
+}
+
+.custom-control {
+    @include media-breakpoint-down(xs) {
+        width: 100%;
+        text-align:left;
+    }
+}

@@ -1,0 +1,43 @@
+@-webkit-keyframes fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeOut {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes fadeOut {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes display-none {
+    from { display: block; }
+    to {display: none; }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.transition-transform {
+    transition: transform 1.5s ease, opacity 1s ease;
+}
+
+.transition-all {
+    transition: all 750ms ease, opacity 1s ease;
+}
+
+.slide-up {
+    transform: translate(0,-100%);
+    opacity: 0;
+    animation: display-none 750ms ease forwards;
+}

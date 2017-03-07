@@ -1,0 +1,17 @@
+<template>
+    <require from="./testimonials.css"></require>
+    <div class="testimonial container">
+      <div class="row au-animate ${$index === 0 ? 'first' : ''} ${$index === items.length-1 ? 'last' : ''}" repeat.for="testimonial of items" if.bind="testimonial.active">
+        <div class="col-xs-12 col-md-3 text-center d-flex align-items-center justify-content-center">
+          <img class="img-fluid rounded-circle" src.bind="testimonial.photo">
+        </div>
+        <blockquote class="col blockquote text-serif p-5 d-flex align-items-center">
+          <div>
+            <p class="mb-0">${testimonial.quote}</p>
+            <footer class="blockquote-footer">${testimonial.name}</footer>
+          </div>
+        </blockquote>
+      </div>
+    </div>
+
+</template>

@@ -6,3 +6,4 @@ src/env.variables.ts
 typings
 custom_typings
 src/ENV_VARS.ts
+scripts

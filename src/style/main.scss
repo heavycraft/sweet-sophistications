@@ -94,7 +94,7 @@ a { transition: color 250ms ease; }
 
 }
 
-.has-tooltip {
+[data-tooltip]:not([data-tooltip='']) {
     //display: inline;
     position: relative;
     &:hover:before{
@@ -108,6 +108,11 @@ a { transition: color 250ms ease; }
         position: absolute;
         z-index: 99;
     }
+
+    &:after{
+        content: '';
+    }
+
     &:hover:after{
         background: #333;
         background: rgba($brand-primary,.9);
@@ -152,6 +157,7 @@ a { transition: color 250ms ease; }
     .list-inline-item[data-seperator]:last-child:after {
         content: ''
     }
+
 }
 
 .card-columns {

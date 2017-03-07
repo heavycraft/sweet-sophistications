@@ -39,7 +39,7 @@
             <div class="container">
                 <h3 class="text-center pb-4">Popular Flavors</h3>
                 <ul class="list-inline flavors text-center">
-                    <li class="list-inline-item badge badge-default badge-pill ${flavor.description ? 'has-tooltip' : ''}" repeat.for="flavor of menu.flavors" data-tooltip.bind="flavor.description">${flavor.name}</li>
+                    <li class="list-inline-item badge badge-default badge-pill" repeat.for="flavor of menu.flavors" data-tooltip.bind="flavor.description || ''">${flavor.name}</li>
                 </ul>
             </div>
         </section>

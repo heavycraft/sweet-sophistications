@@ -10,11 +10,11 @@
             <p class="mb-0">${testimonial.quote}</p>
             <footer class="blockquote-footer">
               ${testimonial.name}
-              <span if.bind="testimonial.source">
+              <em if.bind="testimonial.source">
                 on
                 <a href.bind="testimonial.source_url" if.bind="testimonial.source_url">${testimonial.source}</a>
                 <span if.bind="!testimonial.source_url">${testimonial.source}</span>
-              </span>
+              </em>
             </footer>
           </div>
         </blockquote>

@@ -32,8 +32,10 @@ export class Home {
             this.testimonials = testimonials.map( testimonial => {
                 return { 
                     quote: testimonial.testimonial,
-                    photo: typeof testimonial.photo === 'object' ? testimonial.photo.thumbnail_url : false,
-                    name: testimonial.name
+                    photo: testimonial.photo && typeof testimonial.photo === 'object' ? testimonial.photo.thumbnail_url : false,
+                    name: testimonial.name,
+                    source: testimonial.source,
+                    source_url: testimonial.source_url
                 }
             })
         });

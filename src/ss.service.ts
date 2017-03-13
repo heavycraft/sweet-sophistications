@@ -56,9 +56,11 @@ interface IMenu {
 
 interface ITestimonial {
     id: number;
-    photo: IFile | number;
+    photo?: IFile | number;
     name: string;
     testimonial: string;
+    source?: string;
+    source_url?: string;
 }
 
 interface ILocation {

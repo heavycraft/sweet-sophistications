@@ -28,17 +28,22 @@
 }
 .navbar-brand-rect-container {
 
+  $rect-width: 400px;
+  $rect-height: 240px;
+  
+  width: $rect-width;
+  height: $rect-height;
+
   -webkit-align-self: flex-start;
   align-self:flex-start;
   margin-top:-4rem;
   z-index:9999;
+  width: 60vw;
+  height: 24vw;
+  max-width: $rect-width;
+  max-height: $rect-height;
 
   .navbar-brand-rect {
-    $rect-width: 400px;
-    $rect-height: 15rem;
-    
-    width: $rect-width;
-    height: $rect-height;
 
     &:after {
       display: block;

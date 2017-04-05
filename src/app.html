@@ -1,42 +1,44 @@
 <template>
   <require from="./style/main.css"></require>
   <require from="./resources/elements/navigation"></require>
-  
 
-  <navigation header.bind="business.name" logo="assets/image/logo.svg" emblem="assets/image/emblem.svg" items.bind="navItems" router.bind="router" collapsed.bind="collapseNav"></navigation>
-  <router-view></router-view>
-  
 
-  <footer class="bg-inverse text-white py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-md-6 mb-5">
-          <h1 class="text-uppercase text-serif h5" style="white-space: nowrap;">
-            <img src="assets/image/emblem.svg" height="40px" class="mr-2 pb-1" style="vertical-align: middle;">${business.name}</h1>
-          <div class="ml-5">
-            <span if.bind="business.location.street_number || business.location.street_number">${business.location.street_number} ${business.location.street}</span><br>
-            ${business.location.city}, ${business.location.state} ${business.location.zip_code}<br>
-            ${business.phone}<br>
-            <a href="mailto:${business.email}">${business.email}</a>
+  <navigation header.bind="business.name" logo="assets/image/logo.svg" emblem="assets/image/emblem.svg" items.bind="navItems"
+    router.bind="router" collapsed.bind="collapseNav"></navigation>
+    <router-view></router-view>
+
+
+    <footer class="bg-inverse text-white py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-6 mb-5 text-center">
+              <img alt.bind="business.name" src="assets/image/logo.svg" class="img-fluid" style="max-height: 100px">
           </div>
-        </div>
-        <div class="col-12 col-md-6 text-center text-lg-right" style="white-space:nowrap;">
-          <ul class="list-inline">
+          <div class="col-12 col-md-6 text-center text-lg-right">
+            <!--          <ul class="list-inline">
             <li class="list-inline-item m-3" repeat.for="s of social">
               <a href.bind="s.url"><i class="fa fa-3x ${s.platform.icon}"></i></a>
             </li>
-          </ul>
-          
+          </ul>-->
+            <p>
+                <span if.bind="business.location.street_number || business.location.street_number">${business.location.street_number} ${business.location.street}<br></span>
+                ${business.location.city}, ${business.location.state} ${business.location.zip_code}<br>
+                ${business.phone}
+                <br>
+                <a href="mailto:${business.email}">${business.email}</a>
+              </p>
+          </div>
         </div>
+<p class="text-center mt-4">
+              <a href="https://www.heavycraft.io">
+                <img class="img-fluid" width="250px" src="http://assets.heavycraft-data.info/heavycraft/img/heavycraft-footer-light.svg"
+                  alt="Designed and Developed by Heavy Craft"></a>
+            </p>
+        <p class="text-center mt-4 text-muted"><small>Copyright &copy; ${year} ${business.name}. All rights reserved.</small></p>
       </div>
-      <p class="text-center mt-4">
-        <a href="https://www.heavycraft.io"><img class="img-fluid" width="250px" src="http://assets.heavycraft-data.info/heavycraft/img/heavycraft-footer-light.svg" alt="Designed and Developed by Heavy Craft"></a>
-      </p>
-      <p class="text-center mt-4 text-muted"><small>Copyright &copy; ${year} ${business.name}. All rights reserved.</small></p>
-    </div>
-  </footer>
+    </footer>
 
-  <div class="loading-container">
-    <div class="loader"></div>
-  </div>
+    <div class="loading-container">
+      <div class="loader"></div>
+    </div>
 </template>

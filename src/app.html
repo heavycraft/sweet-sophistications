@@ -10,36 +10,42 @@
 
     <footer class="bg-inverse text-white py-5">
       <div class="container">
-        <div class="row">
-          <div class="col-12 col-md-6 mb-5 text-center">
-              <img alt.bind="business.name" src="assets/image/logo.svg" class="img-fluid" style="max-height: 100px">
-          </div>
-          <div class="col-12 col-md-6 text-center text-lg-right">
+        <div class="row" itemscope itemtype="http://schema.org/LocalBusiness">
+          
+          <div class="col-12 col-md-6 text-center text-lg-left">
             <!--          <ul class="list-inline">
             <li class="list-inline-item m-3" repeat.for="s of social">
               <a href.bind="s.url"><i class="fa fa-3x ${s.platform.icon}"></i></a>
             </li>
           </ul>-->
             <p>
-                <span if.bind="business.location.street_number || business.location.street_number">${business.location.street_number} ${business.location.street}<br></span>
-                ${business.location.city}, ${business.location.state} ${business.location.zip_code}<br>
-                ${business.phone}
+              <h4 itemprop="name" class="text-uppercase">${business.name}</h4>
+              <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                <span itemprop="streetAddress" if.bind="business.location.street_number || business.location.street_number">${business.location.street_number} ${business.location.street}<br></span>
+                <span itemprop="addressLocality">${business.location.city}</span>,
+                <span itemprop="addressRegion">${business.location.state}</span>
+                <span itemprop="postalCode">${business.location.zip_code}</span>
+                </span><br>
+                <span itemprop="telephone"> ${business.phone}</span>
                 <br>
-                <a href="mailto:${business.email}"
+                <a href="mailto:${business.email}" itemprop="email"
                   data-analytics-category="Footer" 
                   data-analytics-action="Email" 
                   data-analytics-label.bind="business.name">${business.email}</a>
               </p>
           </div>
-        </div>
-<p class="text-center mt-4">
+          <div class="col-12 col-md-6 mb-5 text-center text-lg-right">
+
               <a href="https://www.heavycraft.io"
                   data-analytics-category="Footer" 
                   data-analytics-action="Developer" 
                   data-analytics-label="Heavy Craft">
                 <img class="img-fluid" width="250px" src="http://assets.heavycraft-data.info/heavycraft/img/heavycraft-footer-light.svg"
                   alt="Designed and Developed by Heavy Craft"></a>
-            </p>
+
+          </div>
+        </div>
+
         <p class="text-center mt-4 text-muted"><small>Copyright &copy; ${year} ${business.name}. All rights reserved.</small></p>
       </div>
     </footer>

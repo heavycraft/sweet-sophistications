@@ -10,14 +10,14 @@
                 <h2 class="text-center pb-4 underline-filagree">Cake Styles</h2>
                 <div class="row">
                     <div class="col-12 col-sm-6 col-xl-3" repeat.for="style of menu.styles">
-                        <div class="card">
+                        <div class="card" itemscope itemtype="http://schema.org/Product">
                             <div class="card-img-top w-100">
-                                <img class="img-fluid w-100" if.bind="style.photo.thumbnail_url" src.bind="style.photo.thumbnail_url"
+                                <img class="img-fluid w-100" itemprop="image" if.bind="style.photo.thumbnail_url" src.bind="style.photo.thumbnail_url"
                                     alt="Card image cap"></div>
                             <div class="card-block d-flex align-items-center justify-content-center">
                                 <div>
-                                    <h4 class="card-title text-serif">${style.name}</h4>
-                                    <p class="card-text" innerhtml.bind="style.description"></p>
+                                    <h4 class="card-title text-serif" itemprop="name">${style.name}</h4>
+                                    <p class="card-text" itemprop="description" innerhtml.bind="style.description"></p>
                                     
                                 </div>
                                 
@@ -26,7 +26,7 @@
                             data-analytics-category="Menu" 
                             data-analytics-action="Contact" 
                             data-analytics-label.bind="style.name">
-                                <small ref="hasBasePrice" if.bind="style.base_price > 0">Starting at ${ style.base_price | moneyFormat} / Person</small>
+                                <small ref="hasBasePrice" if.bind="style.base_price > 0" itemprop="offers" itemscope itemtype="http://schema.org/Offer">Starting at <span itemprop="price" content.bind="style.base_price">${ style.base_price | moneyFormat}</span> / Person</span></small>
                                 <small if.bind="!hasBasePrice">Contact us for price estimate.</small>
                             </div>
                             <div class="card-footer">

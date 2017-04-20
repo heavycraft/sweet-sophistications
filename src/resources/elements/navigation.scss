@@ -4,6 +4,9 @@
 .nav { width: 100%; }
 
 .navbar {
+
+  z-index: 5038675309; //Pinterest save button uses jenny's number for z-index causing overlap ... just adding an area code!
+
   padding-left:$spacer*3;
   padding-right:$spacer;
 

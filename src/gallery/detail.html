@@ -1,5 +1,6 @@
 <template>
-    <div class="child-route au-animate bg-black text-center">
-        <img class="img-fluid mx-auto" style="min-height: 90vh " src.bind="photo.image.url" click.delegate="closeImage()">
+    <require from="./detail.css"></require>
+    <div class="child-route au-animate bg-black text-center" >
+        <div class="photo-detail" css="background-image: url(${photo.image.url})" click.delegate="closeImage()"></div>
     </div>
 </template>

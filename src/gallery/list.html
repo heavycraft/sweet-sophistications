@@ -1,16 +1,18 @@
 <template>
     <require from="./list.css"></require>
+    <require from="../resources/attributes/pinterest"></require>
     <require from="../resources/elements/pageheader"></require>
     <require from="../resources/value-converters/timeformat"></require>
     <require from="../resources/value-converters/filter"></require>
     <page-header title.bind="routeTitle" body="Browse our decadent creations."></page-header>
-    <div class="child-route au-animate">
+    <div class="child-route au-animate" pinterest-save="type: hover; large: false; round: false;">
         <section class="bg-faded">
             <div class="container text-center">
                 <h4>Available Styles:</h4>
                 <div class="row justify-content-between px-3">
                     <label class="custom-control custom-checkbox" repeat.for="style of styles">
                         <input type="checkbox" name="style" class="custom-control-input" value.bind="style" checked.bind="selectedStyles" change.delegate="updateGallery()"
+
                   data-analytics-category="Gallery" 
                   data-analytics-action="Filter" 
                   data-analytics-label.bind="style">
@@ -30,7 +32,8 @@
                     <div class="card au-animate text-center" repeat.for="image of gallery | filter: 'style': selectedStyles" >
                         
                         <img role="button" class="card-img-top w-100" src.bind="image.image.url" alt.bind="image.style + (image.title ? ' - ' + image.title : '')" click.delegate="openImage(image.id)"
-                            data-pin-save="true"
+                            
+                            
                             data-analytics-category="Gallery" 
                             data-analytics-action="View" 
                             data-analytics-label.bind="image.image.url">
@@ -54,5 +57,4 @@
             </div>
         </section>
     </div>
-    <script async defer data-pin-hover="true" data-pin-tall="true" data-pin-save="true" src="//assets.pinterest.com/js/pinit.js"></script>
 </template>

@@ -41,6 +41,8 @@ export class App {
   configureRouter(config: RouterConfiguration, router: Router) {
     this.router = router;
     config.title = 'Sweet Sophistications';
+    config.options.pushState = true;
+    config.options.root = '/';
     config.addPipelineStep('postcomplete', PostCompleteStep);
     config.map([
       { route: ['', 'home'],          name: 'home',           moduleId: 'home/index',      nav: true,     title: 'Home' },

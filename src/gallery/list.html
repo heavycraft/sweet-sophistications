@@ -29,10 +29,11 @@
                 <div class="card-columns gallery-images au-stagger">
                     <div class="card au-animate text-center" repeat.for="image of gallery | filter: 'style': selectedStyles" >
                         
-                        <img role="button" class="card-img-top w-100" src.bind="image.image.url" alt="Card image cap" click.delegate="openImage(image.id)"
-                  data-analytics-category="Gallery" 
-                  data-analytics-action="View" 
-                  data-analytics-label.bind="image.image.url">
+                        <img role="button" class="card-img-top w-100" src.bind="image.image.url" alt.bind="image.style + (image.title ? ' - ' + image.title : '')" click.delegate="openImage(image.id)"
+                            data-pin-save="true"
+                            data-analytics-category="Gallery" 
+                            data-analytics-action="View" 
+                            data-analytics-label.bind="image.image.url">
                         <div class="card-block" if.bind="image.description || image.title">
                             <h4 class="card-title" if.bind="image.title">${image.title}</h4>
                             <p class="card-text" if.bind="image.description">${image.description}</p>
@@ -53,4 +54,5 @@
             </div>
         </section>
     </div>
+    <script async defer data-pin-hover="true" data-pin-tall="true" data-pin-save="true" src="//assets.pinterest.com/js/pinit.js"></script>
 </template>

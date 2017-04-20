@@ -140,7 +140,13 @@
             "main": "aurelia-validation"
           },
           "moment",
-          "element-closest"
+          "element-closest",
+          "deepmerge",
+          {
+            "name": "aurelia-google-analytics",
+            "path": "../node_modules/aurelia-google-analytics/dist/amd",
+            "main": "index"
+          }
         ]
       }
     ]

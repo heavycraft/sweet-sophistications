@@ -1,7 +1,7 @@
 <template>
   <require from="./navigation.css"></require>
     <nav class="navbar navbar-inverse fixed-top transition-all text-white navbar-toggleable-md au-animate ${scrollBreak || (route !== 'home') ? 'bg-inverse' : 'bg-inverse-transparent mt-0 mt-md-5'} ">
-      <button class="navbar-toggler navbar-toggler-right" type="button" click.trigger="toggleCollapse()">
+      <button class="navbar-toggler navbar-toggler-right" type="button" click.trigger="toggleCollapse()"  data-analytics-category="Navigation" data-analytics-action="Open" data-analytics-label="Burger Button Menu">
         <svg id="burger" viewBox="0 0 100 100" class="${collapsed ? '': 'open'}">
           <rect class="burger-ingredient" id="burger-top" y="0" width="100%" height="20%"  />
           <rect class="burger-ingredient" id="burger-patty" y="40" width="100%" height="20%"  />
@@ -22,14 +22,14 @@
       <div class="collapse navbar-collapse ${collapsed ? '': 'show'}">
         <ul class="nav navbar-nav justify-content-center justify-content-md-center">
           <li class="nav-item" repeat.for="link of router.navigation" >
-            <a class="nav-link text-uppercase ${link.isActive ? 'active' : ''}" route-href="route.bind: link.config.name" click.delegate="collapse()">${link.title}</a>
+            <a class="nav-link text-uppercase ${link.isActive ? 'active' : ''}" route-href="route.bind: link.config.name" click.delegate="collapse()" data-analytics-category="Navigation" data-analytics-action="Navigation Link" data-analytics-label.bind="link.title">${link.title}</a>
           </li>
           
         </ul>
       </div>
       <div if.bind="social">
         <ul class="nav navbar-nav justify-content-end justify-content-xs-center">
-          <li class="nav-item px-0 hidden-lg-down" repeat.for="platform of social" ><a href.bind="platform.link" class="nav-link"><i class="fa ${platform.icon} fa-1x"></i></a></li>
+          <li class="nav-item px-0 hidden-lg-down" repeat.for="platform of social" ><a href.bind="platform.link" class="nav-link" data-analytics-category="Navigation" data-analytics-action="Navigation Link" data-analytics-label.bind="platform.name"><i class="fa ${platform.icon} fa-1x"></i></a></li>
         </ul>
       </div>
     </nav>

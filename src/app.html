@@ -25,12 +25,18 @@
                 ${business.location.city}, ${business.location.state} ${business.location.zip_code}<br>
                 ${business.phone}
                 <br>
-                <a href="mailto:${business.email}">${business.email}</a>
+                <a href="mailto:${business.email}"
+                  data-analytics-category="Footer" 
+                  data-analytics-action="Email" 
+                  data-analytics-label.bind="business.name">${business.email}</a>
               </p>
           </div>
         </div>
 <p class="text-center mt-4">
-              <a href="https://www.heavycraft.io">
+              <a href="https://www.heavycraft.io"
+                  data-analytics-category="Footer" 
+                  data-analytics-action="Developer" 
+                  data-analytics-label="Heavy Craft">
                 <img class="img-fluid" width="250px" src="http://assets.heavycraft-data.info/heavycraft/img/heavycraft-footer-light.svg"
                   alt="Designed and Developed by Heavy Craft"></a>
             </p>

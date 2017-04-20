@@ -22,12 +22,18 @@
                                 </div>
                                 
                             </div>
-                            <div class="btn btn-primary btn-block" role="button" click.delegate="router.navigateToRoute('contact')">
+                            <div class="btn btn-primary btn-block" role="button" click.delegate="router.navigateToRoute('contact')"
+                            data-analytics-category="Menu" 
+                            data-analytics-action="Contact" 
+                            data-analytics-label.bind="style.name">
                                 <small ref="hasBasePrice" if.bind="style.base_price > 0">Starting at ${ style.base_price | moneyFormat} / Person</small>
                                 <small if.bind="!hasBasePrice">Contact us for price estimate.</small>
                             </div>
                             <div class="card-footer">
-                                <button class="btn btn-link" role="button" click.delegate="galleryShow(style.name)">View More</button>
+                                <button class="btn btn-link" role="button" click.delegate="galleryShow(style.name)"
+                            data-analytics-category="Menu" 
+                            data-analytics-action="View More" 
+                            data-analytics-label.bind="style.name">View More</button>
                             </div>
                         </div>
                     </div>

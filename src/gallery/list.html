@@ -10,12 +10,18 @@
                 <h4>Available Styles:</h4>
                 <div class="row justify-content-between px-3">
                     <label class="custom-control custom-checkbox" repeat.for="style of styles">
-                        <input type="checkbox" name="style" class="custom-control-input" value.bind="style" checked.bind="selectedStyles" change.delegate="updateGallery()">
+                        <input type="checkbox" name="style" class="custom-control-input" value.bind="style" checked.bind="selectedStyles" change.delegate="updateGallery()"
+                  data-analytics-category="Gallery" 
+                  data-analytics-action="Filter" 
+                  data-analytics-label.bind="style">
                         <span class="custom-control-indicator"></span>
                         <span class="custom-control-description text-capitalize">${style}</span>
                     </label>
                 </div>
-                <button class="btn btn-primary btn-sm" click.delegate="selectAllStyles()" disabled.bind="selectedStyles.length === styles.length">SELECT ALL</button>
+                <button class="btn btn-primary btn-sm" click.delegate="selectAllStyles()" disabled.bind="selectedStyles.length === styles.length"
+                  data-analytics-category="Gallery" 
+                  data-analytics-action="Select All" 
+                  data-analytics-label="All Categories">SELECT ALL</button>
             </div>
         </section>
         <section>
@@ -23,7 +29,10 @@
                 <div class="card-columns gallery-images au-stagger">
                     <div class="card au-animate text-center" repeat.for="image of gallery | filter: 'style': selectedStyles" >
                         
-                        <img role="button" class="card-img-top w-100" src.bind="image.image.url" alt="Card image cap" click.delegate="openImage(image.id)">
+                        <img role="button" class="card-img-top w-100" src.bind="image.image.url" alt="Card image cap" click.delegate="openImage(image.id)"
+                  data-analytics-category="Gallery" 
+                  data-analytics-action="View" 
+                  data-analytics-label.bind="image.image.url">
                         <div class="card-block" if.bind="image.description || image.title">
                             <h4 class="card-title" if.bind="image.title">${image.title}</h4>
                             <p class="card-text" if.bind="image.description">${image.description}</p>

@@ -45,7 +45,10 @@
                     <textarea class="form-control" name="message" id="message" rows="3" value.bind="contact.message & validate" required></textarea>
                 </div>
                 <div class="text-center">
-                    <button type="submit" role="button" class="btn btn-outline-primary">Submit</button>
+                    <button type="submit" role="button" class="btn btn-outline-primary"
+                            data-analytics-category="Contact" 
+                            data-analytics-action="Send" 
+                            data-analytics-label="Contact Details">Submit</button>
                 </div>
             </form>
 

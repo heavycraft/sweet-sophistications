@@ -18,6 +18,14 @@ export function configure(aurelia: Aurelia) {
     .plugin('aurelia-animator-css')
     .plugin('aurelia-dialog')
     .plugin('aurelia-validation')
+    .plugin('aurelia-google-analytics', config => {
+      config.init('UA-33765324-4');
+      config.attach({
+        logging: { enabled: true },
+        pageTracking: { enabled: true },
+        clickTracking: { enabled: true }
+      })
+    })
     .feature('resources');
 
   if (environment.debug) {

@@ -13,7 +13,7 @@
                         <div class="card" itemscope itemtype="http://schema.org/Product">
                             <div class="card-img-top w-100">
                                 <img class="img-fluid w-100" itemprop="image" if.bind="style.photo.thumbnail_url" src.bind="style.photo.thumbnail_url"
-                                    alt="Card image cap"></div>
+                                    alt.bind="style.name"></div>
                             <div class="card-block d-flex align-items-center justify-content-center">
                                 <div>
                                     <h4 class="card-title text-serif" itemprop="name">${style.name}</h4>

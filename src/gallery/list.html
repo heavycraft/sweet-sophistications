@@ -5,7 +5,7 @@
     <require from="../resources/value-converters/timeformat"></require>
     <require from="../resources/value-converters/filter"></require>
     <page-header title.bind="routeTitle" body="Browse our decadent creations."></page-header>
-    <div class="child-route au-animate" pinterest-save="type: hover; large: false; round: false;">
+    <div class="child-route au-animate" pinterest-save="type: hover; large: true;">
         <section class="bg-faded">
             <div class="container text-center">
                 <h4>Available Styles:</h4>
@@ -30,13 +30,13 @@
             <div class="container">
                 <div class="card-columns gallery-images au-stagger">
                     <div class="card au-animate text-center" repeat.for="image of gallery | filter: 'style': selectedStyles" >
-                        
-                        <img role="button" class="card-img-top w-100" src.bind="image.image.url" alt.bind="image.style + (image.title ? ' - ' + image.title : '')" click.delegate="openImage(image.id)"
-                            
-                            
+                        <a
+                            click.delegate="openImage(image.id)"
                             data-analytics-category="Gallery" 
                             data-analytics-action="View" 
                             data-analytics-label.bind="image.image.url">
+                        <img role="button" class="card-img-top w-100" src.bind="image.image.url" alt.bind="image.style + (image.title ? ' - ' + image.title : '')">
+                        </a>
                         <div class="card-block" if.bind="image.description || image.title">
                             <h4 class="card-title" if.bind="image.title">${image.title}</h4>
                             <p class="card-text" if.bind="image.description">${image.description}</p>

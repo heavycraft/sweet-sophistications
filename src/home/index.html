@@ -13,7 +13,10 @@
                 <!-- h1 class="text-uppercase underline-filagree text-serif text-center">About us</h1 -->
                 <div class="h2 mb-4" innerhtml.bind="$parent.business.description"></div>
                 <div class="lead" innerhtml.bind="$parent.business.description_continued"></div>
-                <div class="text-center mt-5"><button class="btn btn-outline-primary btn-lg" role="button" click.delegate="router.navigateToRoute('about')">Learn More</button></div>
+                <div class="text-center mt-5"><button class="btn btn-outline-primary btn-lg" role="button" click.delegate="router.navigateToRoute('about')"
+                    data-analytics-category="Navigation" 
+                    data-analytics-action="Click" 
+                    data-analytics-label="Learn More">Learn More</button></div>
             </div>
         </section>
 

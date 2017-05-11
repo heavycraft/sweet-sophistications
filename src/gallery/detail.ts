@@ -10,7 +10,11 @@ export class GalleryDetail {
     constructor(private router: Router, private ss: SweetSophisticationsService) {}
 
     activate(params: any) {
-        this.ss.getGalleryPhoto(params.id).then( photo => this.photo = photo );
+        let styles = this.ss.getSelectedStyles();
+        this.ss.getGalleryPhoto(params.id).then( photo => {
+            this.photo = photo;
+            if(!styles) { this.ss.setSelectedStyles([photo.style.toLowerCase()]); }
+        });
     }
 
     closeImage(id: number) {

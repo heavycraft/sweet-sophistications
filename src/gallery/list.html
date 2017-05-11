@@ -35,7 +35,7 @@
                             data-analytics-category="Gallery" 
                             data-analytics-action="View" 
                             data-analytics-label.bind="image.image.url">
-                        <img role="button" class="card-img-top w-100" src.bind="image.image.url" alt.bind="image.style + (image.title ? ' - ' + image.title : '')">
+                        <img role="button" class="card-img-top w-100" src.bind="image.image.thumbnail_url" alt.bind="image.style + (image.title ? ' - ' + image.title : '')">
                         </a>
                         <div class="card-block" if.bind="image.description || image.title">
                             <h4 class="card-title" if.bind="image.title">${image.title}</h4>

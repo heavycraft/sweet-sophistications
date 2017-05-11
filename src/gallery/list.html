@@ -30,7 +30,7 @@
             <div class="container">
                 <div class="card-columns gallery-images au-stagger">
                     <div class="card au-animate text-center" repeat.for="image of gallery | filter: 'style': selectedStyles" >
-                        <a
+                        <a id="galleryImage${image.id}"
                             click.delegate="openImage(image.id)"
                             data-analytics-category="Gallery" 
                             data-analytics-action="View" 

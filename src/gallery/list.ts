@@ -7,11 +7,12 @@ export class GalleryList {
     styles = [];
     @bindable selectedStyles: string[] = [];
     gallery = [];
+    params: any;
 
     constructor(private router: Router, private ss: SweetSophisticationsService) { }
     
     activate(params, route) {
-       
+       this.params = params;
        this.ss.getGallery().then( gallery => this.gallery = gallery);
        this.ss.getCakeStyles().then( styles => {
            this.styles = styles.map(style => style.name.toLowerCase());
@@ -19,6 +20,13 @@ export class GalleryList {
            this.ss.setSelectedStyles(this.selectedStyles);
         });
        
+    }
+
+    attached() {
+        if(this.params.from) {
+            let fromElement = document.getElementById('galleryImage'+this.params.from)
+            if(fromElement) { fromElement.scrollIntoView(); }       
+       }
     }
 
     selectAllStyles() {

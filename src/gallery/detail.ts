@@ -18,6 +18,6 @@ export class GalleryDetail {
     }
 
     closeImage(id: number) {
-        this.router.navigateToRoute('list')
+        this.router.navigateToRoute('list', {from: this.photo.id} )
     }
 }

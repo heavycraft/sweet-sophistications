@@ -7,12 +7,10 @@ export class GalleryList {
     styles = [];
     @bindable selectedStyles: string[];
     gallery = [];
-    routeTitle: string;
 
     constructor(private router: Router, private ss: SweetSophisticationsService) { }
     
     activate(params, route) {
-       this.routeTitle = route.title;
        
        this.ss.getGallery().then( gallery => this.gallery = gallery);
        this.ss.getCakeStyles().then( styles => {

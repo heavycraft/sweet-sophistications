@@ -5,7 +5,7 @@ import { SweetSophisticationsService } from '../ss.service';
 @inject(Router, SweetSophisticationsService)
 export class GalleryList {
     styles = [];
-    @bindable selectedStyles: string[];
+    @bindable selectedStyles: string[] = [];
     gallery = [];
 
     constructor(private router: Router, private ss: SweetSophisticationsService) { }

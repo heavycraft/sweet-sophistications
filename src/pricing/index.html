@@ -9,7 +9,7 @@
             <div class="container">
                 <h2 class="text-center pb-4 underline-filagree">Cake Styles</h2>
                 <div class="row">
-                    <div class="col-12 col-sm-6 col-xl-3" repeat.for="style of menu.styles">
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3" repeat.for="style of menu.styles">
                         <div class="card" itemscope itemtype="http://schema.org/Product">
                             <div class="card-img-top w-100">
                                 <img class="img-fluid w-100" itemprop="image" if.bind="style.photo.thumbnail_url" src.bind="style.photo.thumbnail_url"

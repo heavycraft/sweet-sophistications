@@ -1,22 +1,26 @@
 import { autoinject, bindable } from 'aurelia-framework';
+declare const PinUtils: any;
 
 @autoinject()
 export class PinterestSaveCustomAttribute {
-
-  @bindable({primaryProperty: true}) type: string = 'hover';
-  @bindable large: boolean;
-  @bindable round: boolean;
-  @bindable countPosition: string;
-  @bindable imageUrl: string;
 
   scriptElement: any;
 
   constructor(private element: Element) { }
 
   attached() {
-    if(!document.getElementById('pinterest-'+this.type+'-script')) {
+    if(!document.getElementById('pinterest-script')) {
       this.addPinterestScript();
     }
+    this.element.addEventListener('click', this.savePin.bind(this));
+  }
+
+  private savePin() {
+    PinUtils.pinOne({ 
+      url: this.element.getAttribute('data-pin-url'), 
+      media: this.element.getAttribute('data-pin-media'),
+      description: this.element.getAttribute('data-pin-description')
+    });
   }
 
   private addPinterestScript() {
@@ -24,15 +28,9 @@ export class PinterestSaveCustomAttribute {
     let pinterestScript = document.createElement('script');
     pinterestScript.src = pinterestURL;
 
-    pinterestScript.setAttribute('id', 'pinterest-'+this.type+'-script');
-    pinterestScript.setAttribute('data-pin-save', 'true');
+    pinterestScript.setAttribute('id', 'pinterest-script');
     pinterestScript.async = true;
     pinterestScript.defer = true;
-    
-    if (this.type === 'hover') { pinterestScript.setAttribute('data-pin-hover', 'true') ; } 
-    if (this.countPosition) { pinterestScript.setAttribute('data-pin-count', this.countPosition); }
-    if (this.large) { pinterestScript.setAttribute('data-pin-tall', 'true'); }
-    if (this.round) { pinterestScript.setAttribute('data-pin-round', 'true'); }
     
     pinterestScript.onload = () => { console.log('Loaded pinterest script') };
     this.scriptElement = document.querySelector('body').appendChild(pinterestScript);

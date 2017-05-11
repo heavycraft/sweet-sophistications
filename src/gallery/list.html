@@ -5,7 +5,7 @@
     <require from="../resources/value-converters/timeformat"></require>
     <require from="../resources/value-converters/filter"></require>
     <page-header title.bind="routeTitle" body="Browse our decadent creations."></page-header>
-    <div class="child-route au-animate" pinterest-save="type: hover; large: true;">
+    <div class="child-route au-animate">
         <section class="bg-faded">
             <div class="container text-center">
                 <h4>Available Styles:</h4>
@@ -40,15 +40,24 @@
                         <div class="card-block" if.bind="image.description || image.title">
                             <h4 class="card-title" if.bind="image.title">${image.title}</h4>
                             <p class="card-text" if.bind="image.description">${image.description}</p>
-                            <ul class="list-inline tags">
+                            <ul class="list-inline tags" if.bind="image.tags.length">
                                 <li class="list-inline-item badge badge-default badge-pill" repeat.for="tag of image.tags">${tag}</li>
                             </ul>
                         </div>
-                        
+                       
                         <div class="card-footer bg-faded">
                             <small>${image.style}</small><br>
                             <small class="text-muted" if.bind="image.image.date_uploaded">Added ${image.image.date_uploaded | timeFormat}</small>
                         </div>
+
+                         <a role="button" pinterest-save
+                            data-pin-url="http://www.sweetsophistications.com/gallery/${image.id}"
+                            data-pin-media.bind="image.image.url"
+                            data-pin-description.bind="'Sweet Sophistications'+(image.title ? ' - '+image.title+' ' : '')+(image.description ? ' - '+image.description+' ' : '')+'('+image.style+')'">
+                            <div class="btn btn-primary btn-sm btn-block">
+                                <img src="assets/image/pinterest-badge.svg" height="24"> Save
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <div class="text-center" if.bind="!selectedStyles.length" >
